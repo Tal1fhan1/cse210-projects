@@ -3,7 +3,7 @@ using System;
 class Program
 {
     //My program exceeds the core requirements because it allows the user to rate their day on a scale of 1-10 based on enjoyment. 
-    //It then stores that into a list, calculates their average for each week.
+    //It then stores that into a list and calculates their average for each week.
     static void Main(string[] args)
     {
         int choice = 0;
