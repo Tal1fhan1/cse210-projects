@@ -21,6 +21,6 @@ class Program
         myResume._jobs = new List<Job>();
         myResume._jobs.Add(job1);
         myResume._jobs.Add(job2);
-        myResume.Display();
+        myResume.Display();       
     }
 }
