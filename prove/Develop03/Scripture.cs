@@ -1,7 +1,7 @@
 public class Scripture
 {
-    public List<string> _scriptureVerses;
-    public List<string> _scriptureReferences;
+    private List<string> _scriptureVerses = new List<string>();
+    private List<string> _scriptureReferences = new List<string>();
     private string _randomVerse;
     private string _referenceToVerse;
 
@@ -18,6 +18,14 @@ public class Scripture
     {
         _randomVerse = verse;
         _referenceToVerse = reference;
+    }
+    public List<string> GetScriptureVerses()
+    {
+        return _scriptureVerses;
+    }
+    public List<string> GetScriptureReferences()
+    {
+        return _scriptureReferences;
     }
 
     public string GetRandomVerse()

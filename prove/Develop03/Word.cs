@@ -1,8 +1,8 @@
 public class Word
 {
-    public List<string> _versesToSplit;
-    public List<string> _wordsInVerse;
-    public List<int> _usedIndexes;
+    private List<string> _versesToSplit = new List<string>();
+    private List<string> _wordsInVerse = new List<string>();
+    private List<int> _usedIndexes = new List<int>();
     private string _hiddenWord1;
     private string _hiddenWord2;
     private string _hiddenWord3;
@@ -20,6 +20,18 @@ public class Word
         _randomWord1 = word1;
         _randomWord2 = word2;
         _randomWord3 = word3;
+    }
+    public List<string> GetVersesToSplit()
+    {
+        return _versesToSplit;
+    }
+    public List<string> GetWordsInVerse()
+    {
+        return _wordsInVerse;
+    }
+    public List<int> GetUsedIndexes()
+    {
+        return _usedIndexes;
     }
     public string GetHiddenWord1()
     {
