@@ -42,7 +42,6 @@ class Program
         listing.GetPrompts().Add("Who are some of your personal heroes?");
         listing.GetUsedPromptIndexes();
 
-
         string choice = "";
 
         while(choice != "4")
@@ -54,7 +53,7 @@ class Program
                 Console.Clear();
                 BreathingActivity activity1 = new BreathingActivity();
                 activity1.SetSpinnerStrings(activity.GetSpinnerStrings());
-                activity1.SetActivityDescription("This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
+                activity1.SetActivityDescription("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
                 activity1.DisplayStartMessage("Breathing Activity");
                 Console.Clear();
                 activity1.RunBreathingActivity();

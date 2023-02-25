@@ -9,7 +9,6 @@ public class Activity
     public Activity()
     {
     }
-
     public Activity(string startMessage, string endMessage, string activityDescription, int activityDuration, List<string> spinnerStrings)
     {
         _startMessage = startMessage;

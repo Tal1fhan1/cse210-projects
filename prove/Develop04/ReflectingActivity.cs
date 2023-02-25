@@ -138,5 +138,4 @@ public class ReflectingActivity: Activity
         Console.WriteLine();
         DisplayEndMessage("Reflecting Activity");
     }
-
 }

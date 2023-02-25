@@ -48,5 +48,4 @@ public class BreathingActivity: Activity
         }
         DisplayEndMessage("Breathing Activity");
     }
-
 }
