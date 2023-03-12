@@ -10,10 +10,14 @@ public class ReflectingActivity: Activity
     public ReflectingActivity()
     {
     }
-    public ReflectingActivity(string startMessage, string endMessage, string activityDescription, int activityDuration, List<string> spinnerStrings, string randomPrompt, string randomQuestion): base(startMessage, endMessage, activityDescription, activityDuration, spinnerStrings)
+    public ReflectingActivity(string startMessage, string endMessage, string activityDescription, int activityDuration, List<string> spinnerStrings, List<string> prompts, List<string> questions, List<int> usedPromptIndexes, List<int> usedQuestionIndexes,  string randomPrompt, string randomQuestion): base(startMessage, endMessage, activityDescription, activityDuration, spinnerStrings)
     {
         _randomPrompt = randomPrompt;
         _randomQuestion = randomQuestion;
+        _prompts = prompts;
+        _questions = questions;
+        _usedPromptIndexes = usedPromptIndexes;
+        _usedQuestionIndexes = usedQuestionIndexes;
     }
 
     public string GetRandomPrompt()
@@ -67,6 +71,8 @@ public class ReflectingActivity: Activity
 
     public void RunReflectingActivity()
     {
+        DisplayStartMessage("Reflecting Activity");     
+        Console.Clear();
         Console.WriteLine("Get ready...");
         PauseDuringSpinner(5);
         Console.WriteLine();

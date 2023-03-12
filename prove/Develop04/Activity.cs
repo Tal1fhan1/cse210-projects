@@ -1,10 +1,11 @@
+using System.Timers;
 public class Activity
 {
-    private string _startMessage = "Welcome to the";
-    private string _endMessage = "Well Done!";
+    private string _startMessage;
+    private static string _endMessage;
     private string _activityDescription;
-    private int _activityDuration;
-    private List<string> _spinnerStrings = new List<string>();
+    private static int _activityDuration;
+    private static List<string> _spinnerStrings = new List<string>();
 
     public Activity()
     {
@@ -74,7 +75,7 @@ public class Activity
     {
         Console.WriteLine(_activityDescription);
     }
-    public void PauseDuringSpinner(int animationRunTime)
+    public static void PauseDuringSpinner(int animationRunTime)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(animationRunTime);
@@ -95,7 +96,7 @@ public class Activity
                 i = 0;
             }
         }
-
+        return;
     }
     public void PauseDuringCountdown()
     {
@@ -107,13 +108,13 @@ public class Activity
         }
         Console.WriteLine();
     }
-    public void DisplayEndMessage(string activityName)
+    public static void DisplayEndMessage(string activityName)
     {
         Console.WriteLine(_endMessage);
         PauseDuringSpinner(5);
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_activityDuration} seconds of the {activityName}.");
         PauseDuringSpinner(5);
-        Console.Clear();
+        return;
     }
 }

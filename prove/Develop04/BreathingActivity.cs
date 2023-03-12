@@ -31,6 +31,9 @@ public class BreathingActivity: Activity
 
     public void RunBreathingActivity()
     {
+        DisplayStartMessage("Breathing Activity");
+        Console.Clear();
+        
         Console.WriteLine("Get ready...");
         PauseDuringSpinner(5);
         Console.WriteLine();
@@ -40,9 +43,9 @@ public class BreathingActivity: Activity
 
         while(DateTime.Now < endTime)
         {
-            Console.Write("Breathe in...");
+            Console.Write(_promptToBreatheIn);
             PauseDuringCountdown();
-            Console.Write("Now breathe out...");
+            Console.Write(_promptToBreatheOut);
             PauseDuringCountdown();
             Console.WriteLine();
         }

@@ -1,0 +1,3 @@
+SimpleGoal: Go Home, Drive back Home, 100, True
+
+You have 100 points in total.
