@@ -79,7 +79,7 @@ public class ChecklistGoal: Goal
             _checklistComplete = true;
         }
         SetTotalScore(GetTotalScore() + GetPointsAssociated() + GetBonusPoints()); 
-        Console.WriteLine($"Congratulations! You have earned {GetPointsAssociated()} points!\nYou now have {GetTotalScore()} points.");    
+        Console.WriteLine($"Congratulations! You have earned {GetPointsAssociated() + GetBonusPoints()} points!\nYou now have {GetTotalScore()} points.");    
     }
 
 }

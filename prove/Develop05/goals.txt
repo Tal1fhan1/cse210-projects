@@ -1,3 +1,6 @@
-SimpleGoal: Go Home, Drive back Home, 100, True
+SimpleGoal: why, not, 100, False
+EternalGoal: thats, why, 200
+ChecklistGoal: ok, then, 300, 500, 0, 3, False
+SimpleGoal: never, mind, 100, True
 
 You have 100 points in total.

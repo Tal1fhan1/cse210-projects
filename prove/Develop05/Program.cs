@@ -70,13 +70,17 @@ class Program
             {
                 Console.WriteLine("The goals are:");
                 int number = 1;
-                foreach (string goal in goal1.GetFormattedList())
+                foreach (string goal in goal1.GetListOfGoals())
                 {
-                    if(goal1.GetListOfGoals()[number - 1].Contains("True"))
+                    if(goal.Contains("True") == true)
                     {
                         checkbox = "[X]";
                     }
-                    Console.WriteLine($"{number}. {checkbox} {goal}");
+                    else if(goal.Contains("True") == false)
+                    {
+                        checkbox = "[ ]";
+                    }
+                    Console.WriteLine($"{number}. {checkbox} {goal1.GetFormattedList()[number - 1]}");
                     number++;
                 }
                 
@@ -121,26 +125,23 @@ class Program
                         }
                         goal1.GetListOfGoals().Add(line);
                     }
-                    checkbox = "[ ]";
+                    
                     foreach (string goal in goal1.GetListOfGoals())
-                    {
-                        if(goal.Contains("True"))
-                        {
-                            checkbox = "[X]";
-                        }
+                    {   
+                        
                         string[] words = goal1.GetListOfGoals()[number - 1].Split(", ");
                         string[] split = words[0].Split(": ");
                         string formatted;
                         if(goal1.GetListOfGoals()[number - 1].Contains("ChecklistGoal"))
                         {
-                            formatted = $"{checkbox} {split[1]} ({words[1]}) -- Currently completed: {words[4]}/{words[5]}";
+                            formatted = $"{split[1]} ({words[1]}) -- Currently completed: {words[4]}/{words[5]}";
                         }
                         else
                         {
-                            formatted = $"{checkbox} {split[1]} ({words[1]})";
+                            formatted = $"{split[1]} ({words[1]})";
                         }
                         goal1.GetFormattedList().Add(formatted);
-                        number++;   
+                        number++;  
                     }            
             }
             if (answer == "5")
@@ -148,9 +149,17 @@ class Program
                 Console.WriteLine("The goals are:");
                 Console.WriteLine();
                 int number = 1;
-                foreach (string goal in goal1.GetFormattedList())
+                foreach (string goal in goal1.GetListOfGoals())
                 {
-                    Console.WriteLine($" {number}. {checkbox} {goal}");
+                    if(goal.Contains("True") == true)
+                    {
+                        checkbox = "[X]";
+                    }
+                    else if(goal.Contains("True") == false)
+                    {
+                        checkbox = "[ ]";
+                    }
+                    Console.WriteLine($" {number}. {checkbox} {goal1.GetFormattedList()[number - 1]}");
                     number++;
                 }
                 Console.WriteLine();
@@ -178,6 +187,8 @@ class Program
                 else if(goal1.GetListOfGoals()[goalIndex].Contains("ChecklistGoal"))
                 {
                     goal4.SetPointsAssociated(int.Parse(words[2]));
+                    goal4.SetTotalScore(goal1.GetTotalScore());
+                    goal4.SetBonusPoints(int.Parse(words[3]));
                     goal4.RecordEvent();
                     goal1.SetTotalScore(goal1.GetTotalScore() + goal4.GetPointsAssociated());
                     words[4] = $"{int.Parse(words[4]) + 1}";
@@ -191,7 +202,6 @@ class Program
                     if(words[4] == words[5])
                     {
                         words[6] = "True";
-                        goal4.SetBonusPoints(int.Parse(words[3]));
                         goal1.SetTotalScore(goal1.GetTotalScore() + goal4.GetBonusPoints());
                         updatedGoal = $"{words[0]}, {words[1]}, {words[2]}, {words[3]}, {words[4]}, {words[5]}, {words[6]}";
                         goal1.GetListOfGoals().RemoveAt(goalIndex);
